@@ -7,7 +7,14 @@ import bcrypt from "bcryptjs";
 dotenv.config();
 
 const app = express();
-app.use(cors());
+
+const corsOptions = {
+  origin: "https://anniversary-frontend.vercel.app",
+  methods: ["GET", "POST"],
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 const USER = {
